@@ -1,0 +1,1 @@
+Contains all the currently saved summaries in a screen.
