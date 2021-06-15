@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/maaat/Desktop/Darbai/Discite/project/lib/screens/loading/loading.dart';
+import '../loading/loading.dart';
 import '../../widgets/drawers/main_drawer.dart';
 import '../summary_output/summary_output.dart';
 import '../../widgets/appbars/appbar_blank.dart';
+
+// Requests
+import '../../services/requests.dart';
+
 class SummaryInputScreen extends StatefulWidget {
   static const routeName = '/summaries_input';
 
@@ -12,6 +16,7 @@ class SummaryInputScreen extends StatefulWidget {
 
 class _SummaryInputScreenState extends State<SummaryInputScreen> {
   final GlobalKey<ScaffoldState> _drawerscaffoldkey = new GlobalKey<ScaffoldState>();
+  static RequestsService reqs = RequestsService();
 
   String textInput  = "";
 
@@ -52,12 +57,12 @@ class _SummaryInputScreenState extends State<SummaryInputScreen> {
                       loading = true;
                     });
                     await Future.delayed(Duration(seconds: 1));
-                    outputText = 'Nepavyko gauti duomenų iš duomenų bazės, todėl grąžiname jūsų tekstą: ' + textInput;
+                    // outputText = 'Gautas atsakas is serverio: ' + (await reqs.getText());
                     print("outputText: "+outputText);
                     setState(() {
                       loading = false;
                     });
-                    Navigator.pushNamed(context, SummaryOutputScreen.routeName, arguments: {
+                    Navigator.popAndPushNamed(context, SummaryOutputScreen.routeName, arguments: {
                       'finalTextOutput' : outputText,
                     });
 

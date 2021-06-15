@@ -1,15 +1,30 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:project/screens/add/camera.dart';
+import 'package:project/screens/settings.dart';
+import 'package:project/screens/summary_data.dart';
 import 'screens/summary_output/summary_output.dart';
 import 'screens/summaries/summaries.dart';
 import 'screens/summary_input/summary_input.dart';
 import 'screens/loading/loading.dart';
 import 'screens/login/login.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  print(cameras.toString());
+  final firstCamera = cameras.first;
+
+  runApp(Discite(firstCamera));
 }
 
-class MyApp extends StatelessWidget {
+class Discite extends StatelessWidget {
+
+  final _camera;
+
+  Discite(this._camera);
+
   static Map<int, Color> color = {
     50: Color.fromRGBO(0, 0, 0, 1),
     100: Color.fromRGBO(0, 0, 0, 1),
@@ -26,9 +41,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:'Navigation bar tutorial',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: primeColor,
+
       ),
       routes: {
         '/': (_) => SummariesScreen(),
@@ -37,6 +53,9 @@ class MyApp extends StatelessWidget {
         SummaryOutputScreen.routeName : (_) => SummaryOutputScreen(),
         Loading.routeName : (_) => Loading(),
         Login.routeName : (_) => Login(),
+        SummaryDataScreen.routeName : (_) => SummaryDataScreen(),
+        CameraScreen.routeName: (_) => CameraScreen(_camera),
+        SettingsScreen.routeName: (_) => SettingsScreen(),
       },
     );
   }

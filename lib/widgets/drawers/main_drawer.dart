@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/maaat/Desktop/Darbai/Discite/project/lib/screens/summaries/summaries.dart';
+import '../../screens/summary_output/summary_output.dart';
 
 class MainDrawer extends StatelessWidget {
 

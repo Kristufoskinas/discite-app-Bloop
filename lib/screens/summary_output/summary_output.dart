@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/maaat/Desktop/Darbai/Discite/project/lib/screens/summaries/summaries.dart';
+import '../summary_output/summary_output.dart';
+import '../summaries/summaries.dart';
 import '../../widgets/drawers/main_drawer.dart';
 import '../../widgets/appbars/appbar_blank.dart';
+
 class SummaryOutputScreen extends StatefulWidget {
   static const routeName = '/konspektai_output';
 

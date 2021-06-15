@@ -23,26 +23,26 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget{
             )
         ),
         actions: [
-          Container(
-            margin: EdgeInsets.only(top: 15),
-            child: IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context){
-                      return Scaffold(
-                        body: Center(child: Text('Čia bus nustatymai')),
-                      );
-                    }
-                ));
-              },
-              iconSize: 36.0,
-            ),
-          ),
+          // Container(
+          //   margin: EdgeInsets.only(top: 15),
+          //   child: IconButton(
+          //     icon: Icon(Icons.settings),
+          //     onPressed: (){
+          //       Navigator.push(context, MaterialPageRoute(
+          //           builder: (context){
+          //             return Scaffold(
+          //               body: Center(child: Text('Čia bus nustatymai')),
+          //             );
+          //           }
+          //       ));
+          //     },
+          //     iconSize: 36.0,
+          //   ),
+          // ),
           Container(
             margin: EdgeInsets.only(top: 15, right: 15),
             child: IconButton(
-              icon: Icon(Icons.menu),
+              icon: Icon(Icons.search),
               onPressed: (){
                 if(Scaffold.of(context).isEndDrawerOpen) Navigator.pop(context);
                 //if drawer is open, then close the drawer
