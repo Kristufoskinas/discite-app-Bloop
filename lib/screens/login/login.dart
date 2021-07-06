@@ -26,7 +26,7 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  Map<String, String> accounts = {'JasasStoras':'1', 'MatasStoras': '123', 'AsKietas':'123456', 'KietasAcc': 'slaptas123'};
+  Map<String, String> accounts = {'Jasas':'1', 'Matelisx': '123', 'AsKietas':'123456', 'KietasAcc': 'slaptas123'};
   String username ='', password;
   String usernameValidator(value){
     username = value;

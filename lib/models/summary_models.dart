@@ -1,24 +1,28 @@
 
 
 class SummaryData {
+  String id;
   String title;
   String author;
   String date;
   String content;
 
-  SummaryData({this.title, this.author, this.date, this.content});
+
+  SummaryData({ this.id, this.title, this.author, this.date, this.content});
 
   SummaryData.fromJSON(Map<String, dynamic> json):
+        id = json["id"],
       title = json["title"],
       author = json["author"],
       date = json["date"],
       content = json["content"];
 
   Map<String, dynamic> toJSON() => {
+    "id": id,
     "title" : title,
     "author": author,
     "date": date,
-    "content": content
+    "content": content,
   };
 }
 

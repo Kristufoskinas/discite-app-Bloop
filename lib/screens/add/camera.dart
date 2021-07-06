@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:project/models/summary_models.dart';
+import '../loading/loading.dart';
 
 import 'package:project/services/requests.dart';
 
@@ -25,6 +26,9 @@ class _CameraScreenState extends State<CameraScreen> {
 
   CameraController _controller;
   Future<void> _initializeControllerFuture;
+
+  // Kad rodytu loading ekrana, kai paspaudi fotkint
+  bool _loading = false;
 
   @override
   void initState() {
@@ -52,12 +56,13 @@ class _CameraScreenState extends State<CameraScreen> {
 
     // print( rs.postImage( bd ));
     rs.postImage(bd).then((value) => {
-      Navigator.pushNamed(context, "/summary_data", arguments: SummaryData(title: "Enter title", author: "Enter author", date: "Random date", content: value)),
+      Navigator.pushNamed(context, "/new_summary_data", arguments: SummaryData(title: "Enter title", author: "Enter author", date: "Random date", content: value)),
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if(_loading) return Loading();
     return (Scaffold(
       body: Stack(
         children: [
@@ -91,7 +96,12 @@ class _CameraScreenState extends State<CameraScreen> {
                 ),
                 GestureDetector(
                   child: Image.asset("assets/camera/camera.png"),
-                  onTap: _takePicture,
+                  onTap: (){
+                    setState(() {
+                      _loading = true;
+                    });
+                    _takePicture();
+                  },
                 ),
                 GestureDetector(
                   child: Image.asset("assets/camera/grid.png"),

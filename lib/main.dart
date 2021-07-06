@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:project/screens/add/camera.dart';
 import 'package:project/screens/settings.dart';
 import 'package:project/screens/summary_data.dart';
-import 'screens/summary_output/summary_output.dart';
 import 'screens/summaries/summaries.dart';
-import 'screens/summary_input/summary_input.dart';
 import 'screens/loading/loading.dart';
 import 'screens/login/login.dart';
+import 'screens/new_summary_data.dart';
+import 'auth.dart';
 
 void main() async {
 
@@ -47,15 +47,15 @@ class Discite extends StatelessWidget {
 
       ),
       routes: {
-        '/': (_) => SummariesScreen(),
+        '/': (_) => AuthScreen(),
         SummariesScreen.routeName : (_) => SummariesScreen(),
-        SummaryInputScreen.routeName :(_) => SummaryInputScreen(),
-        SummaryOutputScreen.routeName : (_) => SummaryOutputScreen(),
         Loading.routeName : (_) => Loading(),
         Login.routeName : (_) => Login(),
         SummaryDataScreen.routeName : (_) => SummaryDataScreen(),
         CameraScreen.routeName: (_) => CameraScreen(_camera),
         SettingsScreen.routeName: (_) => SettingsScreen(),
+        NewSummaryDataScreen.routeName: (_) => NewSummaryDataScreen(),
+        AuthScreen.routeName: (_) => AuthScreen(),
       },
     );
   }

@@ -2,6 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:project/models/summary_models.dart';
+import 'dart:math';
+import 'package:uuid/uuid.dart';
+import 'package:uuid/uuid_util.dart';
 
 class StorageService {
 
@@ -34,13 +37,26 @@ class StorageService {
       String json = await _file.readAsString();
       print("JSON extracted: " + json);
 
-      return json.isEmpty ? null : jsonDecode(json);
+      return json.isNotEmpty ? json: null;
     }catch (e){
       print(e);
       return null;
     }
   }
+  writeEntry(SummaryData summaryData) async{
+   // List<SummaryData> recentlyAccessed = List<SummaryData>.filled(4, null, growable: false);
+    //List<SummaryData> allEntries = <SummaryData>[];
+    SummaryListData summaryListData = SummaryListData(recentlyAccessed: [summaryData], allEntries: [summaryData]);
+    var json = await _readJSON();
+    if(json != null){
+      summaryListData = SummaryListData.fromJSON(jsonDecode(json));
+      summaryListData.allEntries.add(summaryData);
+    }
 
+    print(summaryListData);
+
+    await _writeJSON(summaryListData.toJSON().toString());
+  }
   createFakeEntries() async {
     List<SummaryData> recentlyAccessed = List<SummaryData>.filled(4, null, growable: false);
     List<SummaryData> allEntries = <SummaryData>[];

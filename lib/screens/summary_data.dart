@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:intl/intl.dart';
 import 'package:project/models/summary_models.dart';
+import 'package:project/screens/summaries/summaries.dart';
 import 'package:project/services/requests.dart';
+import 'package:project/services/storage.dart';
 import 'package:project/widgets/appbars/appbar.dart';
 import 'package:project/widgets/bottom_nav.dart';
 import 'package:project/widgets/drawers/main_drawer.dart';
 import 'package:flutter/services.dart';
+import 'package:project/services/helpers.dart';
 
 class SummaryDataScreen extends StatelessWidget {
   static const routeName = '/summary_data';
   final RequestsService rs = RequestsService();
-
+  final StorageService ss = StorageService();
+  GlobalKey textFieldKey = GlobalKey();
   final InputDecoration _defaultInputDecoration = InputDecoration(
     border: InputBorder.none,
     focusedBorder: InputBorder.none,
@@ -36,6 +41,11 @@ class SummaryDataScreen extends StatelessWidget {
     final DateTime _now = DateTime.now();
     final DateFormat _formatter = DateFormat('LLL d, y');
     final String _dateString = _formatter.format(_now);
+    final String _uuid = Helpers().generateUniqueId();
+    SummaryData sumData = SummaryData(id: _uuid, title: _titleCont.text, author: "", date: _dateString, content: _textCont.text);
+
+    // cia jeigu su bold, italic ir t.t. norim
+    //QuillController _controller = QuillController.basic();
 
     _summarizeText() async {
       String summarizedText = await rs.summarizeText(_textCont.text);
@@ -61,12 +71,15 @@ class SummaryDataScreen extends StatelessWidget {
             );
           });
     }
+    _saveChanges() async{
+      // TODO: parasyti funkcija, kad overwritint'u summary
+      Navigator.pushNamed(context, SummariesScreen.routeName);
+    }
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
         endDrawer: MainDrawer(),
         appBar: Appbar(),
-        // bottomNavigationBar: BottomNav(),
         body: Padding(
           padding: EdgeInsets.fromLTRB(22, 0, 22, 0),
           child: Column(
@@ -99,7 +112,7 @@ class SummaryDataScreen extends StatelessWidget {
                     onTap: () =>
                     {
                       Clipboard.setData(ClipboardData(text: _textCont.text)),
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully copied!")))
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Copied to clipboard")))
                     },
                     child: Row(
                       children: [
@@ -115,7 +128,7 @@ class SummaryDataScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 15,
+                    width: 10,
                   ), // Padding
                   InkWell(
                     onTap: _summarizeText,
@@ -129,19 +142,54 @@ class SummaryDataScreen extends StatelessWidget {
                         "Summary",
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
                       ),
-                    ]),),
+                    ]),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ), // Padding
+
                 ],
               ),
-              TextField(
-                minLines: 5,
-                maxLines: 24,
-                // TODO: labai prastai, reikia apskaiciuoti dinamiskai
-                controller: _textCont,
-                decoration: _defaultInputDecoration,
-                expands: false,
+              Row(
+                children: [
+                  InkWell(
+                    onTap: _saveChanges,
+                    child:
+                    Row(children: [
+                      Image.asset("assets/summary/save.png"),
+                      SizedBox(
+                        width: 8,
+                      ), // Padding
+                      Text(
+                        "Save changes",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                      ),
+                    ]),
+                  ),
+                ],
               ),
+              Expanded(
+                child: TextField(
+                  style: TextStyle(fontSize: 18),
+                  controller: _textCont,
+                  decoration: _defaultInputDecoration,
+                  expands: true,
+                  maxLines: null,
+                ),
+              ),
+              // cia jeigu su bold, italic ir t.t. norim
+              /*QuillToolbar.basic(controller: _controller),
+              Expanded(
+                child: Container(
+                  child: QuillEditor.basic(
+                    controller: _controller,
+                    readOnly: false, // true for view only mode
+                  ),
+                ),
+              )*/
             ],
           ),
-        ));
+        ),
+    );
   }
 }

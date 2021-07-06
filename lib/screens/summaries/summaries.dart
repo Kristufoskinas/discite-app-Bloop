@@ -6,6 +6,7 @@ import 'package:project/widgets/bottom_nav.dart';
 import 'package:project/widgets/appbars/appbar.dart';
 import 'package:project/widgets/drawers/main_drawer.dart';
 import 'package:project/widgets/summary_card.dart';
+import '../add/camera.dart';
 
 class SummariesScreen extends StatelessWidget {
   static const routeName = '/konspektai';
@@ -44,6 +45,7 @@ class SummariesScreen extends StatelessWidget {
     //   }
     //   print(_allEntries.toString());
     // }
+    await Future.delayed(Duration(seconds: 1));
     _recentEntries = [
       SummaryCard( SummaryData(title: "Lietuvos ūkis tarpukariu", author: "Įvairūs šaltiniai", date: "random date", content: 'Po Pirmojo pasaulin...' )),
     ];
@@ -117,7 +119,7 @@ class SummariesScreen extends StatelessWidget {
                   ),
                 ]));
           }
-
+         // Navigator.pushNamed(context, CameraScreen.routeName);
           return Loading();
         }
         // floatingActionButton: FloatingActionButton(

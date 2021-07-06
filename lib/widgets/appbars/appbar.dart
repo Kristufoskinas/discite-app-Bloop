@@ -42,7 +42,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget{
           Container(
             margin: EdgeInsets.only(top: 15, right: 15),
             child: IconButton(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.menu),
               onPressed: (){
                 if(Scaffold.of(context).isEndDrawerOpen) Navigator.pop(context);
                 //if drawer is open, then close the drawer

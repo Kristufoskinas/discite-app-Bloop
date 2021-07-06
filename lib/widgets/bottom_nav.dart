@@ -3,6 +3,7 @@ import 'package:project/screens/add/camera.dart';
 import 'package:project/screens/settings.dart';
 import 'package:project/screens/summaries/summaries.dart';
 import 'package:project/services/storage.dart';
+import '../screens/settings.dart';
 
 class BottomNav extends StatelessWidget{
 
@@ -16,20 +17,17 @@ class BottomNav extends StatelessWidget{
       
       onTap: (index) async => {
         if( index == 2 ){
-          await StorageService().createFakeEntries(),
+          Navigator.pushNamed(context, SettingsScreen.routeName),
+        }
 
-        },
+        else if(index == 0) {
+            Navigator.popUntil(context, ModalRoute.withName(SummariesScreen.routeName)),
+            Navigator.pushNamed(context, SummariesScreen.routeName),
+        }
 
-        Navigator.popUntil(context, ModalRoute.withName(SummariesScreen.routeName)),
-        Navigator.pushNamed(context, SummariesScreen.routeName),
-
-        if (index == 1){
+        else if (index == 1){
           Navigator.pushNamed(context, CameraScreen.routeName),
-    }
-    //     else if(index == 2){
-    //       // Navigator.pushNamed(context, SettingsScreen.routeName),
-    //       await StorageService().createFakeEntries(),
-    // }
+        }
       },
       
       items: <BottomNavigationBarItem>[

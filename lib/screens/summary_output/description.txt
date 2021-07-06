@@ -1,3 +1,0 @@
-Gives the output of the summarized text.
-Lets the user make changes in the summarized text.
-Lets the user save the summary.

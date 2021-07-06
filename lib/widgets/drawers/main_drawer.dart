@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../screens/summary_output/summary_output.dart';
 
 class MainDrawer extends StatelessWidget {
 

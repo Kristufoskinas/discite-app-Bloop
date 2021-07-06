@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:world_time_app/services/world_time.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import '../summary_output/summary_output.dart';
 
 class Loading extends StatefulWidget {
   static const routeName = '/loading';

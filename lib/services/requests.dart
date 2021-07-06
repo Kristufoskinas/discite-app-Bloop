@@ -12,7 +12,7 @@ class RequestsService{
   RequestsService._internal();
 
   static const String serverUrl = "https://18.217.128.82";
-
+    /// realus konspektavimas
     Future<String> summarizeText(String origText) async{
 
       Dio dio = new Dio();
@@ -41,7 +41,7 @@ class RequestsService{
 
       return res?.data;
     }
-
+    /// realus nuotraukos ikelimas
     Future<String> postImage(ByteData bd) async{
       Dio dio = new Dio();
       var res;
