@@ -1,29 +1,33 @@
-import 'package:camera/camera.dart';
+//import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:project/screens/add/camera.dart';
+import 'package:flutter_login/flutter_login.dart';
+import 'package:project/screens/login/confirm.dart';
+import 'package:project/screens/login/confirm_reset.dart';
+import 'package:project/screens/login/entry.dart';
+import 'package:project/screens/login/helpers/configure_amplify.dart';
+//import 'package:project/screens/add/camera.dart';
 import 'package:project/screens/settings.dart';
-import 'package:project/screens/summary_data.dart';
+import 'package:project/screens/summaries/summary_data.dart';
 import 'screens/summaries/summaries.dart';
 import 'screens/loading/loading.dart';
-import 'screens/login/login.dart';
-import 'screens/new_summary_data.dart';
-import 'auth.dart';
+import 'screens/summaries/new_summary_data.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  final cameras = await availableCameras();
-  print(cameras.toString());
-  final firstCamera = cameras.first;
+  //final cameras = await availableCameras();
+  //print(cameras.toString());
+  //final firstCamera = cameras.first;
+  //runApp(Discite(firstCamera));
+  await configureAmplify();
 
-  runApp(Discite(firstCamera));
+  runApp(Discite());
 }
 
 class Discite extends StatelessWidget {
+  //final _camera;
 
-  final _camera;
-
-  Discite(this._camera);
+  //Discite(this._camera);
+  Discite();
 
   static Map<int, Color> color = {
     50: Color.fromRGBO(0, 0, 0, 1),
@@ -44,20 +48,41 @@ class Discite extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: primeColor,
-
       ),
       routes: {
-        '/': (_) => AuthScreen(),
-        SummariesScreen.routeName : (_) => SummariesScreen(),
-        Loading.routeName : (_) => Loading(),
-        Login.routeName : (_) => Login(),
-        SummaryDataScreen.routeName : (_) => SummaryDataScreen(),
-        CameraScreen.routeName: (_) => CameraScreen(_camera),
+        SummariesScreen.routeName: (_) => SummariesScreen(),
+        Loading.routeName: (_) => Loading(),
+        SummaryDataScreen.routeName: (_) => SummaryDataScreen(),
+        //CameraScreen.routeName: (_) => CameraScreen(_camera),
         SettingsScreen.routeName: (_) => SettingsScreen(),
         NewSummaryDataScreen.routeName: (_) => NewSummaryDataScreen(),
-        AuthScreen.routeName: (_) => AuthScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/confirm') {
+          return PageRouteBuilder(
+            pageBuilder: (_, __, ___) =>
+                ConfirmScreen(data: settings.arguments as LoginData),
+            transitionsBuilder: (_, __, ___, child) => child,
+          );
+        }
+
+        if (settings.name == '/confirm-reset') {
+          return PageRouteBuilder(
+            pageBuilder: (_, __, ___) =>
+                ConfirmResetScreen(data: settings.arguments as LoginData),
+            transitionsBuilder: (_, __, ___, child) => child,
+          );
+        }
+
+        if (settings.name == '/konspektai') {
+          return PageRouteBuilder(
+            pageBuilder: (_, __, ___) => SummariesScreen(),
+            transitionsBuilder: (_, __, ___, child) => child,
+          );
+        }
+
+        return MaterialPageRoute(builder: (_) => EntryScreen());
       },
     );
   }
 }
-

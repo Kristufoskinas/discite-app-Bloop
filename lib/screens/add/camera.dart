@@ -1,4 +1,4 @@
-import 'package:camera/camera.dart';
+//import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:project/models/summary_models.dart';
@@ -24,7 +24,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
   _CameraScreenState(this.camera);
 
-  CameraController _controller;
+  //CameraController _controller;
   Future<void> _initializeControllerFuture;
 
   // Kad rodytu loading ekrana, kai paspaudi fotkint
@@ -34,19 +34,19 @@ class _CameraScreenState extends State<CameraScreen> {
   void initState() {
     super.initState();
 
-    _controller = CameraController(camera, ResolutionPreset.high);
-    _initializeControllerFuture = _controller.initialize();
+    //_controller = CameraController(camera, ResolutionPreset.high);
+    //_initializeControllerFuture = _controller.initialize();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    //_controller.dispose();
     super.dispose();
   }
 
   _toggleFlashState() {
     _flashState = _flashState ? false : true;
-    _controller.setFlashMode(_flashState ? FlashMode.off : FlashMode.torch);
+    //_controller.setFlashMode(_flashState ? FlashMode.off : FlashMode.torch);
   }
 
   _toggleGridlines() {}
@@ -56,13 +56,18 @@ class _CameraScreenState extends State<CameraScreen> {
 
     // print( rs.postImage( bd ));
     rs.postImage(bd).then((value) => {
-      Navigator.pushNamed(context, "/new_summary_data", arguments: SummaryData(title: "Enter title", author: "Enter author", date: "Random date", content: value)),
-    });
+          Navigator.pushNamed(context, "/new_summary_data",
+              arguments: SummaryData(
+                  title: "Enter title",
+                  author: "Enter author",
+                  date: "Random date",
+                  content: value)),
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    if(_loading) return Loading();
+    if (_loading) return Loading();
     return (Scaffold(
       body: Stack(
         children: [
@@ -73,9 +78,9 @@ class _CameraScreenState extends State<CameraScreen> {
                 // If the Future is complete, display the preview.
 
                 return Transform.scale(
-                  scale: 1 / (_controller.value.aspectRatio * MediaQuery.of(context).size.aspectRatio),
+                  //scale: 1 / (_controller.value.aspectRatio * MediaQuery.of(context).size.aspectRatio),
                   alignment: Alignment.topCenter,
-                  child: CameraPreview(_controller),
+                  //child: CameraPreview(_controller),
                 );
               } else {
                 // Otherwise, display a loading indicator.
@@ -96,7 +101,7 @@ class _CameraScreenState extends State<CameraScreen> {
                 ),
                 GestureDetector(
                   child: Image.asset("assets/camera/camera.png"),
-                  onTap: (){
+                  onTap: () {
                     setState(() {
                       _loading = true;
                     });

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 
@@ -30,7 +29,7 @@ class RequestsService{
       });
 
       try{
-        res = await dio.post(serverUrl + "/qwertyuioplkjhgfdsa/api.php", data: formData);
+        res = await dio.post(serverUrl + "/qw/apiertyuioplkjhgfdsa.php", data: formData);
         // print(res);
       }catch(e){
         print(e);

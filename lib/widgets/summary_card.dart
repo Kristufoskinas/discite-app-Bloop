@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:project/models/summary_models.dart';
-import 'package:project/screens/summary_data.dart';
+import 'package:project/screens/summaries/summary_data.dart';
 
 class SummaryCard extends StatelessWidget {
 

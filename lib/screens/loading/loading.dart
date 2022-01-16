@@ -34,46 +34,48 @@ class _LoadingState extends State<Loading> {
 
     return Scaffold(
         backgroundColor: Colors.black,
-        body: Column(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: Container(
-                width: 110,
-                height: 110,
-                margin: EdgeInsets.only(top: 50),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/fblogo.png'),
-                  ),
+        body: SingleChildScrollView(
+          child: Column(
+            //crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Container(
+                  width: 110,
+                  height: 110,
+                  margin: EdgeInsets.only(top: 50),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/fblogo.png'),
+                    ),
 
+                  ),
                 ),
               ),
-            ),
-            Container(
-              width: double.infinity,
-              height: MediaQuery. of(context). size. height-210,
-              //we subtract the width of the container and the margin (110+50) from the total screen size
-              //then we also subtract 50 to give some margin for the SpinKitFadingCube (160+50 = 210)
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Center(
-                    child: SpinKitFadingCube(
+              Container(
+                width: double.infinity,
+                height: MediaQuery. of(context). size. height-210,
+                //we subtract the width of the container and the margin (110+50) from the total screen size
+                //then we also subtract 50 to give some margin for the SpinKitFadingCube (160+50 = 210)
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Center(
+                      child: SpinKitFadingCube(
 
-                      color: Colors.white,
-                      size: 50.0,
-                    ),
-                  )
-                ],
+                        color: Colors.white,
+                        size: 50.0,
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         )
     );
   }
