@@ -64,10 +64,10 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Discite',
+      title: 'Bloop',
       onLogin: _onLogin,
       onRecoverPassword: (String email) => _onRecoverPassword(context, email),
-      onSignup: null,
+      onSignup: _onSignup,
       theme: LoginTheme(
         primaryColor: Theme.of(context).primaryColor,
       ),

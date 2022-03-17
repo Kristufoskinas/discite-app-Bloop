@@ -5,7 +5,7 @@ const amplifyconfig = ''' {
         "plugins": {
             "awsPinpointAnalyticsPlugin": {
                 "pinpointAnalytics": {
-                    "appId": "a045ccf33b344edd90f797d9f70727f8",
+                    "appId": "26c55c5aace845ea932bd142935df363",
                     "region": "eu-central-1"
                 },
                 "pinpointTargeting": {
@@ -25,15 +25,15 @@ const amplifyconfig = ''' {
                 "CredentialsProvider": {
                     "CognitoIdentity": {
                         "Default": {
-                            "PoolId": "eu-central-1:92f59b68-2798-4433-8a63-b8920ca2cb52",
+                            "PoolId": "eu-central-1:8e7a9b5f-c6cf-4ee1-b664-8229ef340c95",
                             "Region": "eu-central-1"
                         }
                     }
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "eu-central-1_Q1acDo2pS",
-                        "AppClientId": "5sutjdnvlrnkflm2brcrap42et",
+                        "PoolId": "eu-central-1_kwPUNyc9J",
+                        "AppClientId": "7vs809vmrev8mntvfa791tar3d",
                         "Region": "eu-central-1"
                     }
                 },
@@ -62,7 +62,7 @@ const amplifyconfig = ''' {
                 },
                 "PinpointAnalytics": {
                     "Default": {
-                        "AppId": "a045ccf33b344edd90f797d9f70727f8",
+                        "AppId": "26c55c5aace845ea932bd142935df363",
                         "Region": "eu-central-1"
                     }
                 },

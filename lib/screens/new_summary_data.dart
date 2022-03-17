@@ -26,23 +26,25 @@ class NewSummaryDataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(ModalRoute
-        .of(context)
-        .settings
-        .arguments);
-    SummaryData _summaryData = ModalRoute
-        .of(context)
-        .settings
-        .arguments;
+    print(ModalRoute.of(context).settings.arguments);
+    SummaryData _summaryData = ModalRoute.of(context).settings.arguments;
 
-    TextEditingController _titleCont = TextEditingController(text: _summaryData.title ?? "Enter title");
-    TextEditingController _textCont = TextEditingController(text: _summaryData.content ?? "Enter text");
+    TextEditingController _titleCont =
+        TextEditingController(text: _summaryData.title ?? "Enter title");
+
+    TextEditingController _textCont =
+        TextEditingController(text: _summaryData.content ?? "Enter text");
 
     final DateTime _now = DateTime.now();
     final DateFormat _formatter = DateFormat('LLL d, y');
     final String _dateString = _formatter.format(_now);
     final String _uuid = Helpers().generateUniqueId();
-    SummaryData sumData = SummaryData(id: _uuid, title: _titleCont.text, author: "", date: _dateString, content: _textCont.text);
+    SummaryData sumData = SummaryData(
+        id: _uuid,
+        title: _titleCont.text,
+        author: "",
+        date: _dateString,
+        content: _textCont.text);
 
     // cia jeigu su bold, italic ir t.t. norim
     //QuillController _controller = QuillController.basic();
@@ -50,7 +52,8 @@ class NewSummaryDataScreen extends StatelessWidget {
     _summarizeText() async {
       String summarizedText = await rs.summarizeText(_textCont.text);
 
-      showDialog(context: context,
+      showDialog(
+          context: context,
           barrierDismissible: false,
           builder: (context) {
             return AlertDialog(
@@ -59,19 +62,23 @@ class NewSummaryDataScreen extends StatelessWidget {
                 child: Text(summarizedText),
               ),
               actions: [
-                TextButton(onPressed: () => {
-                  _textCont.text = summarizedText,
-                  Navigator.of(context).pop(),
-                }, child: Text("Taip")),
-                TextButton(onPressed: () =>
-                {
-                  Navigator.of(context).pop(),
-                }, child: Text("Ne"))
+                TextButton(
+                    onPressed: () => {
+                          _textCont.text = summarizedText,
+                          Navigator.of(context).pop(),
+                        },
+                    child: Text("Taip")),
+                TextButton(
+                    onPressed: () => {
+                          Navigator.of(context).pop(),
+                        },
+                    child: Text("Ne"))
               ],
             );
           });
     }
-    _saveSummary() async{
+
+    _saveSummary() async {
       //await ss.writeEntry(sumData);
       Navigator.pushNamed(context, SummariesScreen.routeName);
     }
@@ -91,7 +98,8 @@ class NewSummaryDataScreen extends StatelessWidget {
                 children: [
                   TextField(
                     controller: _titleCont,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 42.0),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 42.0),
                     decoration: _defaultInputDecoration,
                   ),
                   Align(
@@ -102,17 +110,19 @@ class NewSummaryDataScreen extends StatelessWidget {
                       textScaleFactor: 1.2,
                     ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),
             Row(
               children: [
                 InkWell(
-                  onTap: () =>
-                  {
+                  onTap: () => {
                     Clipboard.setData(ClipboardData(text: _textCont.text)),
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Copied to clipboard")))
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Copied to clipboard")))
                   },
                   child: Row(
                     children: [
@@ -122,7 +132,8 @@ class NewSummaryDataScreen extends StatelessWidget {
                       ), // Padding
                       Text(
                         "Copy all",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 22.0),
                       ),
                     ],
                   ),
@@ -132,15 +143,15 @@ class NewSummaryDataScreen extends StatelessWidget {
                 ), // Padding
                 InkWell(
                   onTap: _summarizeText,
-                  child:
-                  Row(children: [
+                  child: Row(children: [
                     Image.asset("assets/summary/edit.png"),
                     SizedBox(
                       width: 8,
                     ), // Padding
                     Text(
                       "Summary",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 22.0),
                     ),
                   ]),
                 ),
@@ -149,15 +160,15 @@ class NewSummaryDataScreen extends StatelessWidget {
                 ), // Padding
                 InkWell(
                   onTap: _saveSummary,
-                  child:
-                  Row(children: [
+                  child: Row(children: [
                     Image.asset("assets/summary/save.png"),
                     SizedBox(
                       width: 8,
                     ), // Padding
                     Text(
                       "Save",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 22.0),
                     ),
                   ]),
                 ),

@@ -34,5 +34,23 @@
         "disciteapptestbcd2e1f8": {}
       }
     }
+  },
+  "disciteapp": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-disciteapptest-disciteapp-215713-authRole",
+      "UnauthRoleArn": "arn:aws:iam::087440526994:role/amplify-disciteapptest-disciteapp-215713-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::087440526994:role/amplify-disciteapptest-disciteapp-215713-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-disciteapptest-disciteapp-215713-deployment",
+      "UnauthRoleName": "amplify-disciteapptest-disciteapp-215713-unauthRole",
+      "StackName": "amplify-disciteapptest-disciteapp-215713",
+      "StackId": "arn:aws:cloudformation:eu-central-1:087440526994:stack/amplify-disciteapptest-disciteapp-215713/9e97e6f0-a23e-11ec-b60a-0af784bbca34",
+      "AmplifyAppId": "d3u8jma0w9rm5u"
+    },
+    "categories": {
+      "auth": {
+        "disciteapptestbcd2e1f8": {}
+      }
+    }
   }
 }

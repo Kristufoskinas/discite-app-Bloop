@@ -10,7 +10,8 @@ import '../add/camera.dart';
 
 class SummariesScreen extends StatelessWidget {
   static const routeName = '/konspektai';
-  final GlobalKey<ScaffoldState> _drawerscaffoldkey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _drawerscaffoldkey =
+      new GlobalKey<ScaffoldState>();
 
   List<Widget> _recentEntries;
   List<Widget> _allEntries;
@@ -47,14 +48,20 @@ class SummariesScreen extends StatelessWidget {
     // }
     await Future.delayed(Duration(seconds: 1));
     _recentEntries = [
-      SummaryCard( SummaryData(title: "Lietuvos ūkis tarpukariu", author: "Įvairūs šaltiniai", date: "random date", content: 'Po Pirmojo pasaulin...' )),
+      SummaryCard(SummaryData(
+          title: "Enter title",
+          author: "Enter author",
+          date: "date",
+          content: 'The text headline')),
     ];
 
+//uncomment this to see all summaries
     _allEntries = [
-      SummaryCard( SummaryData(title: "Jogaila: Žalgiriui 600", author: "Jadwiga krzyzaniakowa, Jerzy Ochmanski", date: "random date", content: "Teksto santrauka") ),
-      SummaryCard( SummaryData(title: "A Jogaila: Žalgiriui 600", author: "Jadwiga krzyzaniakowa, Jerzy Ochmanski", date: "random date", content: "Teksto santrauka") ),
-      SummaryCard( SummaryData(title: "B Jogaila: Žalgiriui 600", author: "Jadwiga krzyzaniakowa, Jerzy Ochmanski", date: "random date", content: "Teksto santrauka") ),
-      SummaryCard( SummaryData(title: "C Jogaila: Žalgiriui 600", author: "Jadwiga krzyzaniakowa, Jerzy Ochmanski", date: "random date", content: "Teksto santrauka") ),
+      SummaryCard(SummaryData(
+          title: "Jogaila: Žalgiriui 600",
+          author: "Jadwiga krzyzaniakowa, Jerzy Ochmanski",
+          date: "random date",
+          content: "Teksto santrauka")),
     ];
   }
 
@@ -74,11 +81,15 @@ class SummariesScreen extends StatelessWidget {
                 body: ListView(shrinkWrap: true, children: [
                   Column(children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 15),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 22, vertical: 15),
                       alignment: Alignment.centerLeft,
                       child: Text(
                         "Recent",
-                        style: Theme.of(context).primaryTextTheme.headline4.copyWith(
+                        style: Theme.of(context)
+                            .primaryTextTheme
+                            .headline4
+                            .copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -102,24 +113,27 @@ class SummariesScreen extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "All documents",
-                      style: Theme.of(context).primaryTextTheme.headline5.copyWith(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style:
+                          Theme.of(context).primaryTextTheme.headline5.copyWith(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
                     ),
                   ),
                   Column(
-                    children: _allEntries ?? [
-                      Center(child:
-                        Text("No entries. Create on by pressing the '+' button!", style: TextStyle(
-                          fontSize: 15.0
-                        ),),
-                      ),
-                    ],
+                    children: _allEntries ??
+                        [
+                          Center(
+                            child: Text(
+                              "No documents. Create on by pressing the '+' button!",
+                              style: TextStyle(fontSize: 15.0),
+                            ),
+                          ),
+                        ],
                   ),
                 ]));
           }
-         // Navigator.pushNamed(context, CameraScreen.routeName);
+          // Navigator.pushNamed(context, CameraScreen.routeName);
           return Loading();
         }
         // floatingActionButton: FloatingActionButton(

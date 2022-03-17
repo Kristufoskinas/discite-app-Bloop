@@ -81,7 +81,25 @@ class Discite extends StatelessWidget {
           );
         }
 
-        return MaterialPageRoute(builder: (_) => EntryScreen());
+        if (settings.name == '/new_summary_data') {
+          return PageRouteBuilder(
+            pageBuilder: (_, __, ___) => NewSummaryDataScreen(),
+            transitionsBuilder: (_, __, ___, child) => child,
+          );
+        }
+
+        if (settings.name == '/summary_data') {
+          return PageRouteBuilder(
+            pageBuilder: (_, __, ___) => SummaryDataScreen(),
+            transitionsBuilder: (_, __, ___, child) => child,
+          );
+        }
+
+        //return MaterialPageRoute(builder: (_) => EntryScreen());
+
+        return MaterialPageRoute(
+            builder: (_) =>
+                SummariesScreen()); //change to EntryScreen() to test login and signup flow
       },
     );
   }
