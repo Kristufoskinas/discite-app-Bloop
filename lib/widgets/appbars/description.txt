@@ -1,4 +1,0 @@
-The folder contains the appbars used throughout the app.
-The main appbar is appbar.dart
-appbar_no_actions.dart has the action buttons removed.
-appbar_blank.dart has the action buttons and the "Discite" logo removed.

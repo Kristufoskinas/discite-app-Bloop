@@ -1,1 +1,0 @@
-This screen is being displayed when something is loading.

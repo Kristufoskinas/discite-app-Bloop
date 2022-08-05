@@ -1,0 +1,58 @@
+[
+  {
+    "id":8,
+    "user_text":"First",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T11:38:22.096107Z",
+    "saved":false,
+    "percentage":35.0
+  },
+  {
+    "id":9,
+    "user_text":"Second",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T11:38:58.632017Z",
+    "saved":false,
+    "percentage":35.0
+  },
+  {
+    "id":10,
+    "user_text":"Testing",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T13:03:30.437392Z",
+    "saved":false,
+    "percentage":42.0
+  },
+  {
+    "id":11,
+    "user_text":"TEsting",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T16:23:39.780488Z",
+    "saved":false,
+    "percentage":42.0
+  },
+  {
+    "id":12,
+    "user_text":"aaa",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T16:24:42.631916Z",
+    "saved":false,
+    "percentage":35.0
+  },
+  {
+    "id":13,
+    "user_text":"Heelloo",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T18:36:03.536042Z",
+    "saved":false,
+    "percentage":35.0
+  },
+  {
+    "id":14,
+    "user_text":"Heelloo",
+    "summarized_text":"This is summarized text for testing purpose",
+    "created_date":"2022-06-23T18:37:06.910319Z",
+    "saved":false,
+    "percentage":35.0
+  }
+]
