@@ -9,6 +9,7 @@ String sign_up_error = "";
 
 String bloop_title = "";
 String bloop_text = "";
+int bloop_ID = 0;
 
 String title1 = "Your summary";
 String text1 = "Your text.";

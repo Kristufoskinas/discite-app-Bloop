@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:bloop/Screens/Edit/edit_screen.dart';
 import 'package:bloop/Screens/New/new_screen.dart';
 import 'package:bloop/const.dart';
 import 'package:bloop/models/api_data.dart';
@@ -117,11 +118,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                           onPressed: () {
                                             bloop_title = e.userText;
                                             bloop_text = e.summarizedText;
+                                            bloop_ID = e.id;
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      NewScreen()),
+                                                      EditScreen()),
                                             );
                                           },
                                           child: Container(

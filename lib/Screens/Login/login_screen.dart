@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   void postData() async {
+    print("Start");
     final response = await post(
       Uri.parse(url),
       body: {
@@ -27,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         "password": _password.text,
       },
     );
+    print("mid");
     print(response.body);
     if (response.body.length <= 300) {
       setState(() {
@@ -198,6 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: kPrimaryColor,
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {
+                                print("shoud work");
                                 postData();
                               } else {
                                 setState(() {
