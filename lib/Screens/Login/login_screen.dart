@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloop/Screens/Home/home_screen.dart';
 import 'package:bloop/Screens/Loading/loading_screen.dart';
 import 'package:bloop/Screens/Login/Background.dart';
@@ -15,20 +17,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final url = "https://api.dobloop.com/rest-auth/login/";
   final url2 = "http://api.dobloop.com/api/notes/";
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   void postData() async {
     print("Start");
     final response = await post(
-      Uri.parse(url),
-      body: {
+      Uri.parse('https://api.dobloop.com/rest-auth/login/'),
+      body: jsonEncode(<String, String>{
         "email": _email.text,
         "password": _password.text,
-      },
+      }),
     );
-    print("mid");
     print(response.body);
     if (response.body.length <= 300) {
       setState(() {
@@ -200,7 +200,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: kPrimaryColor,
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {
-                                print("shoud work");
                                 postData();
                               } else {
                                 setState(() {
