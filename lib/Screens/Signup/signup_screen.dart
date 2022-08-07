@@ -21,6 +21,7 @@ class _Body extends State<SignUp> {
 
   void postData() async {
     try {
+      print("Start");
       final response = await post(
         Uri.parse('https://api.dobloop.com/rest-auth/register'),
         body: {
@@ -63,6 +64,11 @@ class _Body extends State<SignUp> {
       //access_token = response2[access]
       //access_token = ((response2.body.split("'access': '")[1]).split("'}")[0]);
       print(access_token);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => LoadingScreen()),
+      );
     } catch (err) {
       print("SignupScreen");
       print(err);
@@ -281,11 +287,6 @@ class _Body extends State<SignUp> {
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {
                                 postData();
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => LoadingScreen()),
-                                );
                               } else {
                                 setState(() {
                                   sign_up_error = "Error!";

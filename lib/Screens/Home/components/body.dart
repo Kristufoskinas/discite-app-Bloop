@@ -16,8 +16,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   void getNotes() async {
-    print(access_token);
-    print("Here!");
     final response = await get(
       Uri.parse(url),
       headers: {
