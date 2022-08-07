@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloop/Screens/Home/home_screen.dart';
 import 'package:bloop/Screens/Loading/loading_screen.dart';
 import 'package:bloop/Screens/Login/login_screen.dart';
@@ -20,36 +22,46 @@ class _Body extends State<SignUp> {
   void postData() async {
     try {
       final response = await post(
-        Uri.parse(url),
+        Uri.parse('https://api.dobloop.com/rest-auth/register'),
         body: {
+          "email": _email.text,
           "username": _username.text,
           "password": _password.text,
-          "email": _email.text,
         },
       );
       print(response.body);
-      if (response.body ==
-          '{"email":["user with this email already exists."]}') {
+      print(response.statusCode);
+      if (response.statusCode != 200) {
         setState(() {
-          sign_up_error =
-              "U" + (response.body.split('{"email":["u')[1]).split('"]}')[0];
+          sign_up_error = response.body;
         });
       }
-      String temp = response.body.toString();
-      tempE = temp.split('{"email":"')[1];
-      tempE = tempE.split('","username":"')[0];
-      tempP = _password.text;
+      setState(() {
+        String temp = response.body.toString();
+        tempE = temp.split('{"email":"')[1];
+        tempE = tempE.split('","username":"')[0];
+        tempP = _password.text;
+      });
       print("Here!");
+      print(tempE);
+      print(tempP);
+      print("Passed");
       final response2 = await post(
-        Uri.parse(url2),
+        Uri.parse('https://api.dobloop.com/rest-auth/login/'),
         body: {
           "email": tempE,
           "password": tempP,
         },
       );
       print(response2.body);
-      access_token = "";
-      access_token = ((response2.body.split("'access': '")[1]).split("'}")[0]);
+      var mapObject = jsonDecode(response2.body);
+      print(mapObject['access']);
+      setState(() {
+        access_token = mapObject['access'];
+        refresh_token = mapObject['refresh'];
+      });
+      //access_token = response2[access]
+      //access_token = ((response2.body.split("'access': '")[1]).split("'}")[0]);
       print(access_token);
     } catch (err) {
       print("SignupScreen");

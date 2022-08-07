@@ -8,6 +8,7 @@ import 'package:bloop/Welcome/WelcomeScreen.dart';
 import 'package:bloop/const.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -24,12 +25,13 @@ class _LoginScreenState extends State<LoginScreen> {
     print("Start");
     final response = await post(
       Uri.parse('https://api.dobloop.com/rest-auth/login/'),
-      body: jsonEncode(<String, String>{
+      body: {
         "email": _email.text,
         "password": _password.text,
-      }),
+      },
     );
     print(response.body);
+    print("here?");
     if (response.body.length <= 300) {
       setState(() {
         sign_up_error = "Incorect email or password";
