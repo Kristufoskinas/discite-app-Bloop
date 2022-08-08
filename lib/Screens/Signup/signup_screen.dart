@@ -23,7 +23,7 @@ class _Body extends State<SignUp> {
     try {
       print("Start");
       final response = await post(
-        Uri.parse('https://api.dobloop.com/rest-auth/register/'),
+        Uri.parse("https://api.dobloop.com/rest-auth/register/"),
         body: {
           "email": _email.text,
           "username": _username.text,
@@ -36,14 +36,14 @@ class _Body extends State<SignUp> {
         setState(() {
           sign_up_error = response.body;
         });
+      } else {
+        setState(() {
+          var resp = jsonDecode(response.body);
+          tempE = resp["email"];
+          tempP = _password.text;
+        });
       }
-      setState(() {
-        String temp = response.body.toString();
-        tempE = temp.split('{"email":"')[1];
-        tempE = tempE.split('","username":"')[0];
-        tempP = _password.text;
-      });
-      print("Here!");
+      print("Already ere!");
       print(tempE);
       print(tempP);
       print("Passed");
