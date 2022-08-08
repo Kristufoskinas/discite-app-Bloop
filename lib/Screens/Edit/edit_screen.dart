@@ -11,7 +11,6 @@ class EditScreen extends StatelessWidget {
       body: Background(
         child: SingleChildScrollView(
           child: Form(
-            // key: _formkey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +24,6 @@ class EditScreen extends StatelessWidget {
                     horizontal: 16,
                   ),
                   child: TextFormField(
-                    // controller: _title,
                     keyboardType: TextInputType.text,
                     style: TextStyle(
                       fontSize: 28,
@@ -41,12 +39,6 @@ class EditScreen extends StatelessWidget {
                       hintText: 'Document Title',
                       border: InputBorder.none,
                     ),
-                    //validator: (value) {
-                    //if (_title.toString().length < 1) {
-                    //  return "Please enter the document title.";
-                    //}
-                    //return null;
-                    //},
                   ),
                 ),
                 Padding(
@@ -55,7 +47,6 @@ class EditScreen extends StatelessWidget {
                     horizontal: 16,
                   ),
                   child: TextFormField(
-                    // controller: _note,
                     minLines: 1,
                     maxLines: 17,
                     style: TextStyle(
