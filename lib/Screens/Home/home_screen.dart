@@ -57,7 +57,7 @@ class _NavBarState extends State<NavBar> {
           height: 100,
           selectedIndex: index,
           onDestinationSelected: (index) => setState(() {
-            getNotes();
+            //getNotes();
             this.index = index;
             summary = summary;
             date = date;

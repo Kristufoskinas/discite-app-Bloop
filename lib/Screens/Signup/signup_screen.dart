@@ -23,15 +23,15 @@ class _Body extends State<SignUp> {
     try {
       print("Start");
       final response = await post(
-        Uri.parse('https://api.dobloop.com/rest-auth/register'),
+        Uri.parse('https://api.dobloop.com/rest-auth/register/'),
         body: {
           "email": _email.text,
           "username": _username.text,
           "password": _password.text,
         },
       );
+      print("after");
       print(response.body);
-      print(response.statusCode);
       if (response.statusCode != 200) {
         setState(() {
           sign_up_error = response.body;

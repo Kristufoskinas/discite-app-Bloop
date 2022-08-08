@@ -15,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final url = "http://api.dobloop.com/api/notes/";
+
   void getNotes() async {
     final response = await get(
       Uri.parse(url),
@@ -38,8 +40,6 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  final url = "http://api.dobloop.com/api/notes/";
-
   @override
   void initState() {
     getNotes();
@@ -50,133 +50,139 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     //getNotes();
-    return Scaffold(
-      body: notes == null || notes.isEmpty
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : SingleChildScrollView(
-              child: SizedBox(
-                width: double.infinity,
-                height: size.height * 2,
-                child: Column(
-                  //alignment: A
-                  // lignment.topCenter,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  //crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    const SizedBox(
-                      height: 57,
-                    ),
-                    const Text(
-                      "Your documents",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'DMSans',
-                        fontSize: 24,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: notes == null || notes.isEmpty
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : SingleChildScrollView(
+                child: SizedBox(
+                  width: double.infinity,
+                  height: size.height * 2,
+                  child: Column(
+                    //alignment: A
+                    // lignment.topCenter,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    //crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const SizedBox(
+                        height: 57,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 38,
-                    ),
-                    SizedBox(
-                      height: size.width * 0.515,
-                      width: size.width * 0.515,
-                      child: FlatButton(
-                        onPressed: () {
-                          bloop_title = "";
-                          summary = "";
-                          date = "";
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NewScreen()),
-                          );
-                        },
-                        child: Image.asset(
-                          "assets/images/Blooper.png",
+                      const Text(
+                        "Your documents",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'DMSans',
+                          fontSize: 24,
                         ),
                       ),
-                    ),
-                    notes.isNotEmpty
-                        ? Expanded(
-                            child: GridView.count(
-                              crossAxisCount: 2,
-                              children: notes
-                                  .map((e) => Container(
-                                        height: size.width * 0.448,
-                                        width: size.width * 0.448,
-                                        margin: const EdgeInsets.all(8.0),
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(8)),
-                                          color: Color(0xFFFAFAFA),
-                                        ),
-                                        child: FlatButton(
-                                          onPressed: () {
-                                            bloop_title = e.userText;
-                                            bloop_text = e.summarizedText;
-                                            bloop_ID = e.id;
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      EditScreen()),
-                                            );
-                                          },
-                                          child: Container(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: <Widget>[
-                                                Text(
-                                                  e.userText,
-                                                  style: const TextStyle(
-                                                    fontFamily: 'DMSans',
-                                                    fontWeight: FontWeight.w500,
-                                                    fontSize: 18,
+                      const SizedBox(
+                        height: 38,
+                      ),
+                      SizedBox(
+                        height: size.width * 0.515,
+                        width: size.width * 0.515,
+                        child: FlatButton(
+                          onPressed: () {
+                            bloop_title = "";
+                            summary = "";
+                            date = "";
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NewScreen()),
+                            );
+                          },
+                          child: Image.asset(
+                            "assets/images/Blooper.png",
+                          ),
+                        ),
+                      ),
+                      notes.isNotEmpty
+                          ? Expanded(
+                              child: GridView.count(
+                                crossAxisCount: 2,
+                                children: notes
+                                    .map((e) => Container(
+                                          height: size.width * 0.448,
+                                          width: size.width * 0.448,
+                                          margin: const EdgeInsets.all(8.0),
+                                          decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(8)),
+                                            color: Color(0xFFFAFAFA),
+                                          ),
+                                          child: FlatButton(
+                                            onPressed: () {
+                                              bloop_title = e.userText;
+                                              bloop_text = e.summarizedText;
+                                              bloop_ID = e.id;
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        EditScreen()),
+                                              );
+                                            },
+                                            child: Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    e.userText,
+                                                    style: const TextStyle(
+                                                      fontFamily: 'DMSans',
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 18,
+                                                    ),
+                                                    maxLines: 1,
                                                   ),
-                                                  maxLines: 1,
-                                                ),
-                                                const SizedBox(
-                                                  height: 8,
-                                                ),
-                                                Text(
-                                                  e.summarizedText,
-                                                  style: const TextStyle(
-                                                    fontFamily: 'DMSans',
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 14,
+                                                  const SizedBox(
+                                                    height: 8,
                                                   ),
-                                                  maxLines: 4,
-                                                ),
-                                                const SizedBox(
-                                                  height: 11,
-                                                ),
-                                                Text(
-                                                  date,
-                                                  style: const TextStyle(
-                                                    fontFamily: 'DMSans',
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 12,
+                                                  Text(
+                                                    e.summarizedText,
+                                                    style: const TextStyle(
+                                                      fontFamily: 'DMSans',
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 14,
+                                                    ),
+                                                    maxLines: 4,
                                                   ),
-                                                  maxLines: 1,
-                                                )
-                                              ],
+                                                  const SizedBox(
+                                                    height: 11,
+                                                  ),
+                                                  Text(
+                                                    date,
+                                                    style: const TextStyle(
+                                                      fontFamily: 'DMSans',
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 12,
+                                                    ),
+                                                    maxLines: 1,
+                                                  )
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ))
-                                  .toList(),
-                            ),
-                          )
-                        : Container(),
-                  ],
+                                        ))
+                                    .toList(),
+                              ),
+                            )
+                          : Container(),
+                    ],
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 }
