@@ -103,7 +103,7 @@ class _Body extends State<SignUp> {
                       SizedBox(height: size.height * 0.07),
                       Align(
                         alignment: Alignment.bottomLeft,
-                        child: FlatButton(
+                        child: TextButton(
                           child: Image.asset(
                             "assets/images/back.png",
                             width: 87,
@@ -115,7 +115,9 @@ class _Body extends State<SignUp> {
                                   builder: (context) => WelcomeScreen()),
                             );
                           },
-                          padding: EdgeInsets.all(0.0),
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.all(0.0),
+                          ),
                         ),
                       ),
                       SizedBox(height: size.height * 0.07),
@@ -280,10 +282,12 @@ class _Body extends State<SignUp> {
                         height: size.height * 0.08,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
-                          child: FlatButton(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 16, horizontal: 24),
-                            color: kPrimaryColor,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 16, horizontal: 24),
+                              backgroundColor: kPrimaryColor,
+                            ),
                             onPressed: () {
                               if (_formkey.currentState!.validate()) {
                                 postData();

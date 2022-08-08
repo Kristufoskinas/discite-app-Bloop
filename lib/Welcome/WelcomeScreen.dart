@@ -27,8 +27,11 @@ class WelcomeScreen extends StatelessWidget {
                     height: size.height * 0.07,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: FlatButton(
-                        color: Color(0xFFFF6F45),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          backgroundColor: Color(0xFFFF6F45),
+                        ),
+                        //color: Color(0xFFFF6F45),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -60,8 +63,11 @@ class WelcomeScreen extends StatelessWidget {
                     height: size.height * 0.07,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: FlatButton(
-                          color: Color(0xFFFCEEEA),
+                      child: TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Color(0xFFFCEEEA),
+                          ),
+                          //color: Color(0xFFFCEEEA),
                           onPressed: () {
                             Navigator.push(
                               context,
