@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Container(
-                          width: size.width * 0.35,
+                          width: size.width * 0.37,
                           height: size.height * 0.062,
                           decoration: BoxDecoration(
                             image: DecorationImage(
