@@ -19,29 +19,28 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final url2 = "http://api.dobloop.com/api/notes/";
+  final url = "https://api.dobloop.com/rest-auth/login/";
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   void postData() async {
     print("Start");
     final response = await post(
-      Uri.parse('https://api.dobloop.com/rest-auth/login/'),
+      Uri.parse(url),
       body: {
         "email": _email.text,
         "password": _password.text,
       },
     );
+    print("mid");
     print(response.body);
     print("here?");
-    if (response.body.length <= 300) {
+    if (response.statusCode != 200) {
       setState(() {
-        sign_up_error = "Incorect email or password";
+        sign_up_error = response.body;
       });
     } else {
       setState(() {
         access_token = ((response.body.split("'access': '")[1]).split("'}")[0]);
-      });
-      setState(() {
-        access_token = access_token;
       });
       print(access_token);
       print("loginscreen.dart");
