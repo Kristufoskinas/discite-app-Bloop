@@ -24,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
         "Authorization": "Bearer $access_token",
       },
     );
-
     List<ApiData> data = <ApiData>[];
     data = ((json.decode(response.body) as List)
         .map((e) => ApiData.fromJson(e))

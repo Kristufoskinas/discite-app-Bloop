@@ -3,7 +3,7 @@ class ApiData {
   late String userText;
   late String summarizedText;
   late String createdDate;
-  late bool saved = true;
+  late bool? saved;
   late double percentage;
 
   ApiData(
