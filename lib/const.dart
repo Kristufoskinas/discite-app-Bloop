@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFFFF6F45);
 const kPrimaryLightColor = Color(0xFFFCEEEA);
-String access_token = "";
-String refresh_token = "";
+var access_token = "";
+var refresh_token = "";
 String Continue = "";
-String sign_up_error = "";
+var sign_up_error = "";
 
 String bloop_title = "";
 String bloop_text = "";

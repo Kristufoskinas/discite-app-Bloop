@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:bloop/Screens/Account/account_screen.dart';
 import 'package:bloop/Screens/Home/components/body.dart';
 import 'package:bloop/Screens/New/new_screen.dart';
 import 'package:bloop/Welcome/WelcomeScreen.dart';
 import 'package:bloop/const.dart';
+import 'package:bloop/models/api_data.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
@@ -12,25 +15,34 @@ class NavBar extends StatefulWidget {
 }
 
 class _NavBarState extends State<NavBar> {
-  final url2 = "http://api.dobloop.com/api/notes/";
+  final url = "https://api.dobloop.com/api/notes/";
 
   void getNotes() async {
     final response = await get(
-      Uri.parse(url2),
+      Uri.parse(url),
       headers: {
         "Authorization": "Bearer $access_token",
       },
     );
-    print(response.body);
-    print("Nav bar home.dart");
+    List<ApiData> data = <ApiData>[];
+    data = ((json.decode(response.body) as List)
+        .map((e) => ApiData.fromJson(e))
+        .toList());
+
+    print(data);
+    print("Navbar");
+
+    setState(() {
+      notes = data;
+    });
+    print(notes);
   }
 
-  void update() {
-    setState(() {
-      summary;
-      date;
-    });
-  }
+  // @override
+  // void initState() {
+  //   getNotes();
+  //   super.initState();
+  // }
 
   int index = 1;
   final screens = [
@@ -57,7 +69,6 @@ class _NavBarState extends State<NavBar> {
           height: 100,
           selectedIndex: index,
           onDestinationSelected: (index) => setState(() {
-            //getNotes();
             this.index = index;
             summary = summary;
             date = date;

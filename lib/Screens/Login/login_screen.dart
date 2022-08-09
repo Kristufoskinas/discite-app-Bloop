@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   void postData() async {
-    print("Start");
     final response = await post(
       Uri.parse(url),
       body: {
@@ -31,19 +30,19 @@ class _LoginScreenState extends State<LoginScreen> {
         "password": _password.text,
       },
     );
-    print("mid");
-    print(response.body);
-    print("here?");
     if (response.statusCode != 200) {
       setState(() {
-        sign_up_error = response.body;
+        var error = jsonEncode(response.body);
+        sign_up_error = error.toString();
+
+        //sign_up_error = response.body;
       });
     } else {
       setState(() {
         access_token = ((response.body.split("'access': '")[1]).split("'}")[0]);
+        refresh_token =
+            ((response.body.split("'refresh': '")[1]).split("',")[0]);
       });
-      print(access_token);
-      print("loginscreen.dart");
 
       Navigator.push(
         context,

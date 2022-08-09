@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final url = "http://api.dobloop.com/api/notes/";
+  final url = "https://api.dobloop.com/api/notes/";
 
   void getNotes() async {
     final response = await get(
@@ -28,15 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
     data = ((json.decode(response.body) as List)
         .map((e) => ApiData.fromJson(e))
         .toList());
-
-    print(response.body);
     print(data);
-    print("login.dart");
+    print("body.dart");
 
     setState(() {
       notes = data;
       // _items = ;
     });
+    print(notes);
   }
 
   @override
@@ -48,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //getNotes();
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
