@@ -2,6 +2,7 @@ import 'package:bloop/Screens/Home/components/body.dart';
 import 'package:bloop/Screens/Home/home_screen.dart';
 import 'package:bloop/Welcome/WelcomeScreen.dart';
 import 'package:bloop/const.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -67,12 +68,27 @@ class Body extends StatelessWidget {
                   "assets/images/Logout.png",
                   width: size.width * 0.9179,
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => WelcomeScreen()),
-                  );
-                },
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoAlertDialog(
+                    title: const Text("Log out"),
+                    content: const Text("Are you sure you want to log out?"),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, "Cancel"),
+                        child: const Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WelcomeScreen()),
+                        ),
+                        child: const Text("Yes"),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
