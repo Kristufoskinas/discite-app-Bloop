@@ -263,6 +263,57 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         child: Text("Don’t have an account?"),
                       ),
+                      SizedBox(
+                        height: 48,
+                      ),
+
+                      //GOOGLE SIGNIN
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/google_signin.png",
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 12,
+                      ),
+
+                      //FACEBOOK SIGNIN
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/facebook_signin.png",
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 12,
+                      ),
+
+                      //APPLE SIGNIN
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/apple_signin.png",
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 130,
+                      ),
                     ],
                   ),
                 ],

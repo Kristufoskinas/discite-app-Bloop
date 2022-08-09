@@ -276,6 +276,7 @@ class _Body extends State<SignUp> {
                           },
                         ),
                       ),
+
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 7),
                         width: size.width * 0.9,
@@ -343,6 +344,60 @@ class _Body extends State<SignUp> {
                           );
                         },
                         child: Text("Already have an account?"),
+                      ),
+
+                      SizedBox(
+                        height: 48,
+                      ),
+
+                      //GOOGLE SIGNUP
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/google_signup.png",
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 12,
+                      ),
+
+                      //FACEBOOK SIGNUP
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/facebook_signup.png",
+                          //width: size.width * 0.9179,
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 12,
+                      ),
+
+                      //APPLE SIGNUP
+                      TextButton(
+                        style: TextButton.styleFrom(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        ),
+                        child: Image.asset(
+                          "assets/images/apple_signup.png",
+                          //width: size.width * 0.9179,
+                        ),
+                        onPressed: null,
+                      ),
+
+                      SizedBox(
+                        height: 142,
                       ),
                     ],
                   ),
