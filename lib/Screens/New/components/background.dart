@@ -17,7 +17,7 @@ class Background extends StatelessWidget {
           SizedBox(
             height: 47,
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.push(
                 context,
