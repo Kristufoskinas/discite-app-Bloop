@@ -71,7 +71,7 @@ class Body extends StatelessWidget {
                 onPressed: () => showDialog<String>(
                   context: context,
                   builder: (BuildContext context) => CupertinoAlertDialog(
-                    title: const Text("Log out"),
+                    title: const Text("Logout"),
                     content: const Text("Are you sure you want to log out?"),
                     actions: <Widget>[
                       TextButton(

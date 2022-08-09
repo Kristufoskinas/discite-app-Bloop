@@ -107,7 +107,7 @@ class _BodyState extends State<Body> {
                 SizedBox(
                   height: 19,
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () {
                     bloop_text = _note.text;
                     bloop_title = _title.text;
