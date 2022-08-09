@@ -134,7 +134,7 @@ class _Body extends State<SignUp> {
                           ),
                         ),
                       ),
-                      //SizedBox(height: size.height * 0.005),
+                      SizedBox(height: size.height * 0.005),
                       Text(
                         'Sign up to Bloop',
                         textAlign: TextAlign.left,
@@ -160,6 +160,10 @@ class _Body extends State<SignUp> {
                             height: 1.5 /*PERCENT not supported*/
                             ),
                       ),
+
+                      SizedBox(height: size.height * 0.02),
+                      //SizedBox(height: 53),
+
                       //USERNAME
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 6),

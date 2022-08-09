@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      //SizedBox(height: size.height * 0.005),
+                      SizedBox(height: size.height * 0.005),
                       Text(
                         'Sign in to Bloop',
                         textAlign: TextAlign.left,
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 1.5 /*PERCENT not supported*/
                             ),
                       ),
-                      SizedBox(height: size.height * 0.05),
+                      SizedBox(height: size.height * 0.03),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 6),
                         padding: EdgeInsets.symmetric(horizontal: 24),
