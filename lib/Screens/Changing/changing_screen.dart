@@ -70,17 +70,6 @@ class _Body extends State<ChangingScreen> {
     }
   }
 
-  void getNotes() async {
-    final response = await get(
-      Uri.parse(url),
-      headers: {
-        "Authorization": "Bearer $access_token",
-      },
-    );
-    print(response.body);
-    print("changing scroll");
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
