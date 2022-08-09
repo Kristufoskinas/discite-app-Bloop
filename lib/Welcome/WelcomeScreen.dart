@@ -55,6 +55,9 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              SizedBox(height: size.height * 0.001),
+
               Container(
                 child: Center(
                   child: Container(
@@ -95,7 +98,7 @@ class WelcomeScreen extends StatelessWidget {
               Container(
                 margin: EdgeInsets.fromLTRB(size.width * 0.0615, 0, 0, 0),
                 child: Text(
-                  'By using this app, you agree to our \n Privacy Policy and Terms & Conditions',
+                  'By using this app, you agree to our \nPrivacy Policy and Terms & Conditions',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: Color.fromRGBO(117, 117, 116, 1),

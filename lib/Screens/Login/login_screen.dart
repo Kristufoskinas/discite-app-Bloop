@@ -145,6 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Email",
                             border: InputBorder.none,
                           ),
@@ -177,6 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           controller: _password,
                           obscureText: true,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Password",
                             border: InputBorder.none,
                           ),

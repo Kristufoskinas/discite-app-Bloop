@@ -167,6 +167,7 @@ class _Body extends State<SignUp> {
                           //textAlign: TextAlign.center,
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Username",
                             border: InputBorder.none,
                           ),
@@ -194,6 +195,7 @@ class _Body extends State<SignUp> {
                         child: TextFormField(
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Email",
                             border: InputBorder.none,
                           ),
@@ -226,6 +228,7 @@ class _Body extends State<SignUp> {
                           controller: _password,
                           obscureText: true,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Password",
                             border: InputBorder.none,
                           ),
@@ -255,6 +258,7 @@ class _Body extends State<SignUp> {
                           controller: _confirm,
                           obscureText: true,
                           decoration: InputDecoration(
+                            contentPadding: EdgeInsets.symmetric(vertical: 24),
                             hintText: "Repeat Password",
                             border: InputBorder.none,
                           ),
