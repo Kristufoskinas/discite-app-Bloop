@@ -109,7 +109,9 @@ class _Body extends State<SignUp> {
                           ),
                         ),
                       ),
+
                       SizedBox(height: size.height * 0.07),
+
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Container(
