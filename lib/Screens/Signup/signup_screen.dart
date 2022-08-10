@@ -110,7 +110,7 @@ class _Body extends State<SignUp> {
                         ),
                       ),
 
-                      SizedBox(height: size.height * 0.07),
+                      SizedBox(height: size.height * 0.05),
 
                       Align(
                         alignment: Alignment.bottomLeft,
@@ -346,57 +346,51 @@ class _Body extends State<SignUp> {
                       ),
 
                       SizedBox(
-                        height: 48,
+                        height: size.height * 0.005,
                       ),
 
-                      //GOOGLE SIGNUP
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                        ),
-                        child: Image.asset(
-                          "assets/images/google_signup.png",
-                        ),
-                        onPressed: null,
-                      ),
-
-                      SizedBox(
-                        height: 12,
-                      ),
-
-                      //FACEBOOK SIGNUP
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                        ),
-                        child: Image.asset(
-                          "assets/images/facebook_signup.png",
-                          //width: size.width * 0.9179,
-                        ),
-                        onPressed: null,
-                      ),
-
-                      SizedBox(
-                        height: 12,
-                      ),
-
-                      //APPLE SIGNUP
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                        ),
-                        child: Image.asset(
-                          "assets/images/apple_signup.png",
-                          //width: size.width * 0.9179,
-                        ),
-                        onPressed: null,
-                      ),
-
-                      SizedBox(
-                        height: 142,
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        child: Row(children: <Widget>[
+                          Spacer(flex: 3),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                            ),
+                            child: Image.asset(
+                              "assets/images/google_sign_small.png",
+                              height: 53,
+                            ),
+                            onPressed: null,
+                          ),
+                          Spacer(flex: 2),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 10),
+                            ),
+                            child: Image.asset(
+                              "assets/images/facebook_sign_small.png",
+                              height: 53,
+                            ),
+                            onPressed: null,
+                          ),
+                          Spacer(flex: 2),
+                          TextButton(
+                            style: TextButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 0, horizontal: 0),
+                            ),
+                            child: Image.asset(
+                              "assets/images/apple_sign_small.png",
+                              height: 53,
+                            ),
+                            onPressed: null,
+                          ),
+                          Spacer(flex: 3),
+                        ]),
                       ),
                     ],
                   ),

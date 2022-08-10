@@ -7,8 +7,6 @@ import 'package:bloop/models/api_data.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
-import '../../../Welcome/WelcomeScreen.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
