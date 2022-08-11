@@ -75,6 +75,7 @@ class _Body extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    //print(size.height);
     return Scaffold(
       body: Background(
         child: Center(
@@ -361,7 +362,7 @@ class _Body extends State<SignUp> {
                             ),
                             child: Image.asset(
                               "assets/images/google_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),
@@ -373,7 +374,7 @@ class _Body extends State<SignUp> {
                             ),
                             child: Image.asset(
                               "assets/images/facebook_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),
@@ -385,7 +386,7 @@ class _Body extends State<SignUp> {
                             ),
                             child: Image.asset(
                               "assets/images/apple_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),

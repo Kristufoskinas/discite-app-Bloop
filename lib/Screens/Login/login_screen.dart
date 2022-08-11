@@ -281,7 +281,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: Image.asset(
                               "assets/images/google_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),
@@ -293,7 +293,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: Image.asset(
                               "assets/images/facebook_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),
@@ -305,14 +305,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: Image.asset(
                               "assets/images/apple_sign_small.png",
-                              height: 53,
+                              height: size.height * 0.0628,
                             ),
                             onPressed: null,
                           ),
                           Spacer(flex: 3),
                         ]),
                       ),
-                      //GOOGLE SIGNIN
                     ],
                   ),
                 ],
