@@ -50,12 +50,12 @@ class _BodyState extends State<Body> {
                   child: TextFormField(
                     controller: _title,
                     keyboardType: TextInputType.text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.w700,
                       fontFamily: 'DMSans',
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintStyle: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
@@ -65,7 +65,7 @@ class _BodyState extends State<Body> {
                       border: InputBorder.none,
                     ),
                     validator: (value) {
-                      if (_title.toString().length < 1) {
+                      if (_title.toString().isEmpty) {
                         return "Please enter the document title.";
                       }
                       return null;
@@ -86,7 +86,7 @@ class _BodyState extends State<Body> {
                       fontWeight: FontWeight.w400,
                       fontFamily: 'DMSans',
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
@@ -104,10 +104,10 @@ class _BodyState extends State<Body> {
                     },
                   ),
                 ),
-                SizedBox(
-                  height: 19,
+                const SizedBox(
+                  height: 30,
                 ),
-                TextButton(
+                /*TextButton(
                   onPressed: () {
                     bloop_text = _note.text;
                     bloop_title = _title.text;
@@ -115,8 +115,8 @@ class _BodyState extends State<Body> {
                       showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                                title: Text("Error!"),
-                                content: Text(
+                                title: const Text("Error!"),
+                                content: const Text(
                                     "There is nothing to be summarized, try putting in some text."),
                                 actions: [
                                   TextButton(
@@ -139,10 +139,34 @@ class _BodyState extends State<Body> {
                     "assets/images/Bloop_it.png",
                     width: size.width * 0.9179,
                   ),
-                ),
+                ), buves buttonas */
                 ElevatedButton(
                     onPressed: () {
-                      print('Hi there');
+                      bloop_text = _note.text;
+                      bloop_title = _title.text;
+                      if (_note.text.length + _title.text.length < 1) {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: const Text("Error!"),
+                                  content: const Text(
+                                      "There is nothing to be summarized, try putting in some text."),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('OK'))
+                                  ],
+                                ));
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ChangingScreen()), //change to ChangingScreen
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.zero,
@@ -162,10 +186,14 @@ class _BodyState extends State<Body> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              SizedBox(
-                                child: Image.asset(
-                                  'assets/images/00_logo.png',
-                                  width: 30,
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    5.0, 1.0, 15.0, 0.0),
+                                child: SizedBox(
+                                  child: Image.asset(
+                                    'assets/images/o_logo.png',
+                                    width: 30,
+                                  ),
                                 ),
                               ),
                               const Text(
