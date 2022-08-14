@@ -164,11 +164,11 @@ class _BodyState extends State<Body> {
                             children: <Widget>[
                               SizedBox(
                                 child: Image.asset(
-                                  'assets/images/oo_logo.png',
+                                  'assets/images/00_logo.png',
                                   width: 30,
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 'Bloop it',
                                 style: TextStyle(
                                     fontSize: 18,
@@ -177,7 +177,7 @@ class _BodyState extends State<Body> {
                                     fontFamily: 'DMSans'),
                               ),
                               //Spacer(),
-                              Padding(
+                              const Padding(
                                 padding:
                                     EdgeInsets.fromLTRB(5.0, 1.0, 0.0, 0.0),
                                 child: Icon(
