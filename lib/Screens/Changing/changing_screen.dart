@@ -140,8 +140,8 @@ class _Body extends State<ChangingScreen> {
               SizedBox(
                 height: 40,
               ),
-              Padding(
-                padding: const EdgeInsets.all(16),
+              const Padding(
+                padding: EdgeInsets.all(16),
                 child: Text(
                   "Document language",
                   style: TextStyle(
@@ -151,7 +151,7 @@ class _Body extends State<ChangingScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Center(
@@ -162,10 +162,10 @@ class _Body extends State<ChangingScreen> {
                     selectedColor: kPrimaryColor,
                     fillColor: kPrimaryLightColor,
                     renderBorder: false,
-                    children: <Widget>[
+                    children: const <Widget>[
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 20),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                         child: Text(
                           "English 🇬🇧",
                           style: TextStyle(
@@ -175,8 +175,8 @@ class _Body extends State<ChangingScreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 42, vertical: 20),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 42, vertical: 20),
                         child: Text(
                           "Lithuanian 🇱🇹",
                           style: TextStyle(
@@ -208,7 +208,7 @@ class _Body extends State<ChangingScreen> {
                   flex: 15,
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: FlatButton(
+                    child: /*FlatButton(
                       onPressed: () {
                         postData();
                         Navigator.push(
@@ -220,8 +220,69 @@ class _Body extends State<ChangingScreen> {
                         "assets/images/Bloop_it.png",
                         width: size.width * 0.7615,
                       ),
-                    ),
-                  ))
+                    ),*/
+                        ElevatedButton(
+                            onPressed: () {
+                              postData();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.zero,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(80))),
+                            child: Ink(
+                                decoration: BoxDecoration(
+                                    gradient: const LinearGradient(colors: [
+                                      Color.fromRGBO(255, 86, 64, 1),
+                                      Color.fromRGBO(255, 134, 74, 1),
+                                    ]),
+                                    borderRadius: BorderRadius.circular(80)),
+                                child: Container(
+                                  width: 297,
+                                  height: 57,
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.fromLTRB(
+                                            5.0, 1.0, 15.0, 0.0),
+                                        child: SizedBox(
+                                          child: Image.asset(
+                                            'assets/images/o_logo.png',
+                                            width: 30,
+                                          ),
+                                        ),
+                                      ),
+                                      const Text(
+                                        'Bloop it',
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w700,
+                                            fontStyle: FontStyle.normal,
+                                            fontFamily: 'DMSans'),
+                                      ),
+                                      //Spacer(),
+                                      const Padding(
+                                        padding: EdgeInsets.fromLTRB(
+                                            5.0, 1.0, 0.0, 0.0),
+                                        child: Icon(
+                                          Icons.arrow_forward_rounded,
+                                          color: Colors.white,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ))),
+                  )),
+              const SizedBox(
+                height: 30,
+              )
             ],
           ),
         ),
