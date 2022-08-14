@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
                     controller: _note,
                     minLines: 1,
                     maxLines: 17,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
                       fontFamily: 'DMSans',
@@ -139,7 +139,56 @@ class _BodyState extends State<Body> {
                     "assets/images/Bloop_it.png",
                     width: size.width * 0.9179,
                   ),
-                )
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      print('Hi there');
+                    },
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80))),
+                    child: Ink(
+                        decoration: BoxDecoration(
+                            gradient: const LinearGradient(colors: [
+                              Color.fromRGBO(255, 86, 64, 1),
+                              Color.fromRGBO(255, 134, 74, 1),
+                            ]),
+                            borderRadius: BorderRadius.circular(80)),
+                        child: Container(
+                          width: 297,
+                          height: 57,
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              SizedBox(
+                                child: Image.asset(
+                                  'assets/images/oo_logo.png',
+                                  width: 30,
+                                ),
+                              ),
+                              Text(
+                                'Bloop it',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                    fontStyle: FontStyle.normal,
+                                    fontFamily: 'DMSans'),
+                              ),
+                              //Spacer(),
+                              Padding(
+                                padding:
+                                    EdgeInsets.fromLTRB(5.0, 1.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.arrow_forward_rounded,
+                                  color: Colors.white,
+                                  size: 24.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ))),
               ],
             ),
           ),
