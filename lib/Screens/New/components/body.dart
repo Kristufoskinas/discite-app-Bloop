@@ -1,5 +1,6 @@
 import 'package:bloop/Screens/Changing/changing_screen.dart';
 import 'package:bloop/Screens/New/components/background.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:bloop/const.dart';
 import 'package:http/http.dart';
@@ -147,7 +148,7 @@ class _BodyState extends State<Body> {
                       if (_note.text.length + _title.text.length < 1) {
                         showDialog(
                             context: context,
-                            builder: (context) => AlertDialog(
+                            builder: (context) => CupertinoAlertDialog(
                                   title: const Text("Error!"),
                                   content: const Text(
                                       "There is nothing to be summarized, try putting in some text."),
