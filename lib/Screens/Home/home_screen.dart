@@ -58,7 +58,7 @@ class _NavBarState extends State<NavBar> {
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           labelTextStyle: MaterialStateProperty.all(
-            TextStyle(
+            const TextStyle(
                 fontSize: 12,
                 fontFamily: 'DMSans',
                 fontWeight: FontWeight.w400),

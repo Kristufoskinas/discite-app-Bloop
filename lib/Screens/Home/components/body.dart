@@ -100,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       notes.isNotEmpty
                           ? Expanded(
                               child: GridView.count(
+                                physics: const NeverScrollableScrollPhysics(),
                                 crossAxisCount: 2,
                                 children: notes
                                     .map((e) => Container(
@@ -157,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Row(
                                                   children: [
                                                     Text(
-                                                      date = "February 14",
+                                                      date,
                                                       style: const TextStyle(
                                                         fontFamily: 'DMSans',
                                                         fontWeight:

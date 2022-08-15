@@ -14,7 +14,7 @@ class Background extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 47,
           ),
           TextButton(
@@ -29,7 +29,7 @@ class Background extends StatelessWidget {
               width: size.width * 0.2718,
             ),
           ),
-          Divider(
+          const Divider(
             color: Color(0xFFE1E1E1),
             //color: Colors.black,
             thickness: 2,

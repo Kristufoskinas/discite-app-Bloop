@@ -140,7 +140,9 @@ class _BodyState extends State<Body> {
                     "assets/images/Bloop_it.png",
                     width: size.width * 0.9179,
                   ),
-                ), buves buttonas */
+                ), buves buttonas su nuotrauka, kurio size boxas neatitinka*/
+
+                
                 ElevatedButton(
                     onPressed: () {
                       bloop_text = _note.text;

@@ -38,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
                             MaterialPageRoute(builder: (context) => SignUp()),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Get Started',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                               fontFamily: 'DM Sans',
                               fontSize: 18,
                               letterSpacing: 0,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.w500,
                               height: 1.5 /*PERCENT not supported*/
                               ),
                         ),
@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: size.height * 0.001),
+              SizedBox(height: size.height * 0.0015),
 
               Container(
                 child: Center(
@@ -78,7 +78,7 @@ class WelcomeScreen extends StatelessWidget {
                                   builder: (context) => LoginScreen()),
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             'I already have an account',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -86,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
                                 fontFamily: 'DM Sans',
                                 fontSize: 18,
                                 letterSpacing: 0,
-                                fontWeight: FontWeight.normal,
+                                fontWeight: FontWeight.w500,
                                 height: 1.5 /*PERCENT not supported*/
                                 ),
                           )),
@@ -97,8 +97,7 @@ class WelcomeScreen extends StatelessWidget {
               // Figma Flutter Generator ByusingthisappyouagreetoourprivacypolicyandtermsconditionsWidget - TEXT
               Container(
                 margin: EdgeInsets.fromLTRB(size.width * 0.0615, 0, 0, 0),
-                child: Text(
-                  'By using this app, you agree to our \nPrivacy Policy and Terms & Conditions',
+                child: Text.rich(
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: Color.fromRGBO(117, 117, 116, 1),
@@ -108,6 +107,21 @@ class WelcomeScreen extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                       height: 1.5 /*PERCENT not supported*/
                       ),
+                  TextSpan(
+                      text: 'By using this app, you agree to our \n',
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: 'Privacy Policy',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                            )),
+                        TextSpan(text: ' and '),
+                        TextSpan(
+                            text: 'Terms & Conditions',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                            )),
+                      ]),
                 ),
               )
             ],
