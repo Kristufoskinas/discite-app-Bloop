@@ -52,12 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: notes == null || notes.isEmpty
             ? const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(), //sita reik pakeist
               )
             : SingleChildScrollView(
                 child: SizedBox(
                   width: double.infinity,
-                  height: size.height * 2,
+                  height: size.height *
+                      0.92, //kiek scrollint galima, reikia paklausti kaip del height
                   child: Column(
                     //alignment: A
                     // lignment.topCenter,
