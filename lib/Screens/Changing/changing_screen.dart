@@ -37,7 +37,7 @@ class _Body extends State<ChangingScreen> {
       Bloop_response = response.body.toString();
       print(Bloop_response);
       print("changing.dart HERE!");
-      summary = Bloop_response.split('"summarized_text":"')[1];
+      summary = Bloop_response.split('"summarized_text":"')[0];
       setState(() {
         summary = summary.split('","created_date"')[0];
       });

@@ -298,7 +298,7 @@ class _Body extends State<SignUp> {
                                 });
                               }
                             },
-                            child: Text(
+                            child: const Text(
                               "Continue",
                               style: TextStyle(
                                   color: Colors.white,
@@ -312,7 +312,7 @@ class _Body extends State<SignUp> {
                       Center(
                         child: Text(
                           sign_up_error,
-                          style: TextStyle(
+                          style: const TextStyle(
                             decoration: TextDecoration.underline,
                             color: Colors.red,
                             fontFamily: 'DMSans',
@@ -324,7 +324,7 @@ class _Body extends State<SignUp> {
                       TextButton(
                         style: TextButton.styleFrom(
                           primary: Color(0xFF757574),
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             decoration: TextDecoration.underline,
                             color: Color(0xFF757574),
                             fontFamily: 'DMSans',
@@ -366,9 +366,10 @@ class _Body extends State<SignUp> {
                             ),
                             onPressed: null,
                           ),
-                          Spacer(flex: 2),
+                          const Spacer(flex: 2),
                           TextButton(
                             style: TextButton.styleFrom(
+                              // ignore: prefer_const_constructors
                               padding: EdgeInsets.symmetric(
                                   vertical: 0, horizontal: 10),
                             ),
@@ -378,7 +379,7 @@ class _Body extends State<SignUp> {
                             ),
                             onPressed: null,
                           ),
-                          Spacer(flex: 2),
+                          const Spacer(flex: 2),
                           TextButton(
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.symmetric(
@@ -390,7 +391,7 @@ class _Body extends State<SignUp> {
                             ),
                             onPressed: null,
                           ),
-                          Spacer(flex: 3),
+                          const Spacer(flex: 3),
                         ]),
                       ),
                     ],

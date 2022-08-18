@@ -108,7 +108,9 @@ class _BodyState extends State<Body> {
                 const SizedBox(
                   height: 30,
                 ),
-                /*TextButton(
+                /* Buves buttonas su nuotrauka, kurio size boxas neatitinka
+                
+                TextButton(
                   onPressed: () {
                     bloop_text = _note.text;
                     bloop_title = _title.text;
@@ -140,9 +142,8 @@ class _BodyState extends State<Body> {
                     "assets/images/Bloop_it.png",
                     width: size.width * 0.9179,
                   ),
-                ), buves buttonas su nuotrauka, kurio size boxas neatitinka*/
+                ), */
 
-                
                 ElevatedButton(
                     onPressed: () {
                       bloop_text = _note.text;
@@ -207,7 +208,6 @@ class _BodyState extends State<Body> {
                                     fontStyle: FontStyle.normal,
                                     fontFamily: 'DMSans'),
                               ),
-                              //Spacer(),
                               const Padding(
                                 padding:
                                     EdgeInsets.fromLTRB(5.0, 1.0, 0.0, 0.0),
