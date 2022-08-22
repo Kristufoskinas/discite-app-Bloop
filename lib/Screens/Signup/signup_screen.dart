@@ -99,7 +99,7 @@ class _Body extends State<SignUp> {
                             width: 87,
                           ),
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pop(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => WelcomeScreen()),

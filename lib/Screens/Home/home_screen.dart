@@ -44,9 +44,8 @@ class _NavBarState extends State<NavBar> {
   //   super.initState();
   // }
 
-  int index = 1;
+  int index = 0;
   final screens = [
-    NewScreen(),
     HomeScreen(),
     AccountScreen(),
   ];
@@ -74,17 +73,6 @@ class _NavBarState extends State<NavBar> {
             date = date;
           }),
           destinations: [
-            NavigationDestination(
-              icon: Image.asset(
-                "assets/images/new_icon.png",
-                width: 17,
-              ),
-              selectedIcon: Image.asset(
-                "assets/images/new_icon_filled.png",
-                width: 17,
-              ),
-              label: 'Blooper',
-            ),
             NavigationDestination(
                 icon: Image.asset(
                   "assets/images/home_icon.png",

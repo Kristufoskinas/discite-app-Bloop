@@ -80,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: 87,
                           ),
                           onPressed: () {
-                            Navigator.push(
+                            Navigator.pop(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => WelcomeScreen()),

@@ -227,7 +227,7 @@ class _Body extends State<ChangingScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()),
+                                    builder: (context) => NavBar()),
                               );
                             },
                             style: ElevatedButton.styleFrom(

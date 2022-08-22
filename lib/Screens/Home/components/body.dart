@@ -51,8 +51,48 @@ class _HomeScreenState extends State<HomeScreen> {
       onWillPop: () async => false,
       child: Scaffold(
         body: notes == null || notes.isEmpty
-            ? const Center(
-                child: CircularProgressIndicator(), //sita reik pakeist
+            ? Column(
+                children: [
+                  SizedBox(height: 230),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(18, 0, 18, 0),
+                      child: Text("You don't have any documents",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 24,
+                          ))),
+                  const SizedBox(height: 8),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Text("press button below to do add",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                            color: Colors.grey,
+                          ))),
+                  const SizedBox(height: 18),
+                  SizedBox(
+                    height: size.width * 0.515,
+                    width: size.width * 0.515,
+                    child: FlatButton(
+                      onPressed: () {
+                        bloop_title = "";
+                        summary = "";
+                        date = "";
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NewScreen()),
+                        );
+                      },
+                      child: Image.asset(
+                        "assets/images/Blooper.png",
+                      ),
+                    ),
+                  ),
+                ],
+                //sita reik pakeist
               )
             : SingleChildScrollView(
                 child: SizedBox(
