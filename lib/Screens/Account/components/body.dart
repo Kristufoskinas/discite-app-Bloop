@@ -79,7 +79,7 @@ class Body extends StatelessWidget {
                         child: const Text("Cancel"),
                       ),
                       TextButton(
-                        onPressed: () => Navigator.pop(
+                        onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => WelcomeScreen()),
