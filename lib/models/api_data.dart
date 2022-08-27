@@ -16,7 +16,7 @@ class ApiData {
 
   ApiData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    userText = json['user_text'];
+    userText = json['title'];
     summarizedText = json['summarized_text'];
     createdDate = json['created_date'];
     saved = json['saved'];

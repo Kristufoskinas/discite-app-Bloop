@@ -11,9 +11,13 @@ var sign_up_error = "";
 String bloop_title = "";
 String bloop_text = "";
 int bloop_ID = 0;
+<<<<<<< Updated upstream
+=======
+String ID = "";
+>>>>>>> Stashed changes
 
-String title1 = "Your summary";
-String text1 = "Your text.";
+String title1 = "";
+String text1 = "";
 String date1 = "";
 
 String title = "";

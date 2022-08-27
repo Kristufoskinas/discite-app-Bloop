@@ -15,11 +15,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final url = "https://api.dobloop.com/api/notes/";
+  final url = "https://api.dobloop.com/api/notes/$ID/";
 
   void getNotes() async {
     final response = await get(
-      Uri.parse(url),
+      Uri.parse('https://api.dobloop.com/api/notes/'),
       headers: {
         "Authorization": "Bearer $access_token",
       },
@@ -31,11 +31,22 @@ class _HomeScreenState extends State<HomeScreen> {
     print(data);
     print("body.dart");
 
+<<<<<<< Updated upstream
     setState(() {
       notes = data;
       // _items = ;
     });
     print(notes);
+=======
+  void Delete() async {
+    final response = await delete(
+      Uri.parse('https://api.dobloop.com/api/notes/$ID/'),
+      headers: {
+        "Authorization": "Bearer $access_token",
+      },
+    );
+    print(response.body);
+>>>>>>> Stashed changes
   }
 
   @override
@@ -50,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
+<<<<<<< Updated upstream
         body: notes == null || notes.isEmpty
             ? Column(
                 children: [
@@ -89,6 +101,43 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Image.asset(
                         "assets/images/Blooper.png",
                       ),
+=======
+        body: SingleChildScrollView(
+          child: SizedBox(
+            width: double.infinity,
+            height: size.height *
+                0.92, //kiek scrollint galima, reikia paklausti kaip del height
+            child: Column(
+              //alignment: A
+              // lignment.topCenter,
+              mainAxisAlignment: MainAxisAlignment.start,
+              //crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(
+                  height: 57,
+                ),
+                const Text(
+                  "Your documents",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'DMSans',
+                    fontSize: 24,
+                  ),
+                ),
+                const SizedBox(
+                  height: 28,
+                ),
+                SizedBox(
+                  height: size.width * 0.515,
+                  width: size.width * 0.515,
+                  child: FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => NewScreen()));
+                    },
+                    child: Image.asset(
+                      "assets/images/Blooper.png",
+>>>>>>> Stashed changes
                     ),
                   ),
                 ],
@@ -223,6 +272,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             size.width * 0.04,
                                                       ),
                                                     ),*/
+<<<<<<< Updated upstream
                                                     SizedBox(
                                                       height: 30,
                                                       width: 30,
@@ -235,6 +285,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       ),
                                                     ),
                                                   ],
+=======
+                                              SizedBox(
+                                                height: 30,
+                                                width: 30,
+                                                child: IconButton(
+                                                  icon: Image.asset(
+                                                    'assets/images/trash_icon.png',
+                                                    width: size.width * 1,
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      ID = e.id.toString();
+                                                    });
+                                                    print(ID);
+                                                    print("Here!");
+                                                    Delete();
+                                                  },
+>>>>>>> Stashed changes
                                                 ),
                                                 SizedBox(
                                                   height: size.height * 0.015,

@@ -26,7 +26,12 @@ class _Body extends State<ChangingScreen> {
       body: {
         "user_text": bloop_text,
         "percentage": _currentSliderValue.round().toString(),
+<<<<<<< Updated upstream
         "title": "UNCLE BOB",
+=======
+        "title": bloop_title,
+        "language": bloop_language,
+>>>>>>> Stashed changes
       },
     );
     print(response.body);

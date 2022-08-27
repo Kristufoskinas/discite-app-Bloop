@@ -11,6 +11,7 @@ class Background extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: size.height,
+<<<<<<< Updated upstream
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -27,15 +28,35 @@ class Background extends StatelessWidget {
             child: Image.asset(
               "assets/images/Back2.png",
               width: size.width * 0.2718,
+=======
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const SizedBox(
+              height: 47,
+>>>>>>> Stashed changes
             ),
-          ),
-          const Divider(
-            color: Color(0xFFE1E1E1),
-            //color: Colors.black,
-            thickness: 2,
-          ),
-          child,
-        ],
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NavBar()),
+                );
+              },
+              child: Image.asset(
+                "assets/images/Back2.png",
+                width: size.width * 0.2718,
+              ),
+            ),
+            const Divider(
+              color: Color(0xFFE1E1E1),
+              //color: Colors.black,
+              thickness: 2,
+            ),
+            child,
+          ],
+        ),
       ),
     );
   }

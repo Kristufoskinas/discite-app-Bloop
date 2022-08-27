@@ -28,6 +28,16 @@ class _BodyState extends State<Body> {
     );
   }
 
+  /*@override
+  void initState() {
+    _title.value = _title.value.copyWith(
+      text: bloop_title,
+    );
+    _note.value = _note.value.copyWith(
+      text: summary,
+    );
+  }*/
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

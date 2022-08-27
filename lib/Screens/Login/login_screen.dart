@@ -18,7 +18,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final url2 = "http://api.dobloop.com/api/notes/";
   final url = "https://api.dobloop.com/rest-auth/login/";
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 

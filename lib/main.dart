@@ -1,12 +1,11 @@
-import 'dart:developer';
-
-import 'package:bloop/Screens/Home/components/body.dart';
-import 'package:bloop/Screens/Home/home_screen.dart';
 import 'package:bloop/Welcome/WelcomeScreen.dart';
 import 'package:bloop/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+<<<<<<< Updated upstream
 import 'package:http/http.dart' as http;
+=======
+>>>>>>> Stashed changes
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

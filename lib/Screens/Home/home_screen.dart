@@ -1,9 +1,6 @@
 import 'dart:convert';
-
 import 'package:bloop/Screens/Account/account_screen.dart';
 import 'package:bloop/Screens/Home/components/body.dart';
-import 'package:bloop/Screens/New/new_screen.dart';
-import 'package:bloop/Welcome/WelcomeScreen.dart';
 import 'package:bloop/const.dart';
 import 'package:bloop/models/api_data.dart';
 import 'package:flutter/material.dart';
